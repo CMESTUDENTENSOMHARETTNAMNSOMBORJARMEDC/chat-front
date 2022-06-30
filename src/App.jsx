@@ -8,7 +8,6 @@ const { socket, socket$ } = connect
 import RoomsList from './components/RoomsList'
 import Chat from './components/Chat'
 
-// const { socket, socket$, connect$, listen, emit } = connect
 let msg = new Subject()
 let nameChanged = new Subject()
 let newRoomObs = new Subject()
@@ -25,14 +24,9 @@ function App(props) {
   const authedRef = useRef()
   authedRef.current = authed
 
-  // const nameChanger = new (false)
   const [name, setName] = useState('')
   const [nameChange, setNameChange] = useState(false)
   const [roomNameChange, setRoomNameChange] = useState(false)
-
-  // const h$ = of(handleMessage)
-  // if(!msg) msg = new Subject()
-  // const nameChanged = new Subject()
 
   useEffect(() => {
     if (closedConnection) {
@@ -53,9 +47,6 @@ function App(props) {
         }
         socket.auth = { username: textRef.current }
         socket.connect()
-        // setAuthed(true)
-        // socket.emit('change name', data)
-        //
         socket$
           .pipe(
             map((socket) => fromEvent(socket, 'connect')),
@@ -72,17 +63,6 @@ function App(props) {
 
     if (authed) {
       setReconnected(false)
-
-      //first(), take(1) ?
-      // emit(of('ready')).subscribe(({ socket, data }) => {
-      // })
-
-      // emit(nameChanged).subscribe(({ socket, data }) => {
-      // console.log('changing name')
-      // socket.auth = { data }
-      // socket.connect()
-      // socket.emit('change name', data)
-      // })
 
       connect.emit(nameChanged, killSignal).subscribe(({ socket, data }) => {
         socket.emit('change name', data)
@@ -111,7 +91,8 @@ function App(props) {
     }
     return () => {
       socket.off()
-      killSignal.next('cleaned main')
+      console.log('cleaned main')
+      // killSignal.next(true)
     }
   }, [authed, reconnected, closedConnection])
 

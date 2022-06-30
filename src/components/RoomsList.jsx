@@ -44,8 +44,8 @@ export default function RoomsList() {
       socket.emit('fetch rooms')
     }
     return () => {
-        console.log('cleaned roomslist')
-        killSignal.next(true)
+      console.log('cleaned roomslist')
+      // killSignal.next(true)
     }
   }, [])
 
@@ -78,7 +78,7 @@ export default function RoomsList() {
     if (!foundRoom) {
       addRoom('@' + message.username, message.user_id, {
         privateRoom: true,
-        recipient: message.sid,
+        recipient: message.user_id,
       })
       setDelayedEvent(['private message', message])
     } else {
@@ -90,7 +90,7 @@ export default function RoomsList() {
     const foundRoom = findRoom(id)
     if (!foundRoom) {
       console.log('new private room with id. ' + id)
-      addRoom('@' + name, id, { privateRoom: true, recipient: sid })
+      addRoom('@' + name, id, { privateRoom: true, recipient: id })
     }
     setDelayedEvent(['join', id])
   }
