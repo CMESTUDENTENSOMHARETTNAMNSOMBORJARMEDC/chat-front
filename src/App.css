@@ -1,0 +1,199 @@
+.App {
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+button {
+  font-size: calc(10px + 2vmin);
+}
+
+.title {
+  font-family: 'Monaco', monospace;
+  font-size: 8px;
+}
+
+.chatContainer {
+  min-height: 60vh;
+  width: 90vw;
+  border: 2px dotted;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+.chatName {
+  grid-column: 1;
+}
+
+.chat {
+  margin-block-start: 0em;
+  margin-left: 0;
+  grid-column: 2;
+  max-height: 60vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.messageList {
+  height: 80%;
+  display: flex;
+  padding-left: 10px;
+  flex-direction: column-reverse;
+  font-size: 20px;
+  list-style-type: none;
+}
+
+.messageItem {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.nameInMessage {
+  overflow: hidden;
+  max-width: 80px;
+  color: #2abee7;
+  cursor: pointer;
+}
+.message {
+  flex: 2;
+  margin: 0px 5px 0px 5px;
+}
+
+.messageTime {
+  color: #a089a7;
+  align-self: flex-start;
+}
+
+.chatBox {
+  display: block;
+  align-self: flex-end;
+  width: 100%;
+}
+
+.chatInput {
+  width: 98%;
+  height: 100%;
+}
+
+.roomsList {
+  list-style-type: none;
+  padding-left: 5px;
+  font-size: 20px;
+}
+
+.roomItem {
+  margin: 3px 0px 3px 0px;
+}
+
+.nameChange {
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.nameInput {
+  width: 100%;
+}
+
+.roomInputContainer {
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0px 10px 0px;
+}
+.roomNameInput > input,.roomPassInput > input {
+}
+.roomNameInput {
+  margin-right: 25px;
+}
+
+.roomPassInput {
+}
+
+.unseenMessage {
+  color: red;
+}
+.roomName {
+  overflow: hidden;
+  text-overflow: clip;
+}
+.roomName:hover {
+  color: #2abee7;
+}
+
+.focused {
+  color: #df60d4;
+  cursor: default;
+}
+.focused:hover {
+  color: #df60d4;
+}
+
+.joined {
+  color: #1ea0e1;
+  cursor: pointer;
+}
+
+.unJoined {
+  color: #a089a7;
+  cursor: pointer;
+}
+
+.del {
+  background-color: #30063a;
+  position: absolute;
+  cursor: pointer;
+  color: #df60d4;
+}
+
+.leave {
+  cursor: pointer;
+}
+
+.leave:hover {
+  background-color: #30063a;
+  color: #df60d4;
+}
+
+.usersList {
+
+}
+
+.user {
+	cursor: pointer;
+}
+.error {
+  color: red;
+}
