@@ -115,7 +115,7 @@ export default function Room({ id, name, privateRoom, recipient, password }) {
       listen('delete room', killSignal)
         .pipe(filter((rid) => rid === id))
         .subscribe(() => {
-          console.log('handel leave in ' + id)
+          console.log('handle leave in ' + id)
           handleLeave()
         })
 
