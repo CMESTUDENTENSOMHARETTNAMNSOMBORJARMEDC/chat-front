@@ -3,7 +3,7 @@ import { of, fromEvent, Subject  } from 'rxjs'
 import { map, switchMap, takeUntil } from 'rxjs/operators'
 import { createContext } from 'react'
 
-const socket = io('http://localhost:4000', { autoConnect: false })
+const socket = io(process.env.BACKEND_URL || 'http://localhost:4000', { autoConnect: false })
 const focusObs = new Subject()
 
 export const connect = {
