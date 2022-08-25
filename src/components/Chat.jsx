@@ -91,7 +91,7 @@ export default function Chat() {
               </span>
               <span className="message">{msg.message}</span>
               <span className="messageTime">
-                {new Date(msg.created_at).toString().split(' ')[4]}
+                {new Date(parseInt(msg.created_at)).toString().split(' ')[4]}
               </span>
             </li>
           ))}

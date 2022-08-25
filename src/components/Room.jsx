@@ -85,7 +85,7 @@ export default function Room({ id, name, privateRoom, recipient, password }) {
               id: '-2',
               message: `succesfully joined room ${data}`,
               username: '',
-              created_at: Date(),
+              created_at: Date.now(),
             },
           ])
         )
