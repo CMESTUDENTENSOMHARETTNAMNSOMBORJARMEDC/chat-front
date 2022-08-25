@@ -4,7 +4,8 @@ import { map, switchMap, takeUntil } from 'rxjs/operators'
 import { createContext } from 'react'
 
 // const socket = io(import.meta.env.BACKEND_URL || 'http://localhost:4000', { autoConnect: false })
-const socket = io('https://waynefront-stage.herokuapp.com/', { autoConnect: false })
+// const socket = io('http://localhost:4000', { autoConnect: false })
+const socket = io('https://waynechatzky-stage.herokuapp.com', { autoConnect: false })
 const focusObs = new Subject()
 
 export const connect = {
