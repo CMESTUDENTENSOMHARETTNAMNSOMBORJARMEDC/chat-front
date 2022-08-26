@@ -1,11 +1,13 @@
 import { io } from 'socket.io-client'
-import { of, fromEvent, Subject  } from 'rxjs'
+import { of, fromEvent, Subject } from 'rxjs'
 import { map, switchMap, takeUntil } from 'rxjs/operators'
 import { createContext } from 'react'
 
-// const socket = io(import.meta.env.BACKEND_URL || 'http://localhost:4000', { autoConnect: false })
-// const socket = io('http://localhost:4000', { autoConnect: false })
-const socket = io('https://waynechatzky-stage.herokuapp.com', { autoConnect: false })
+console.log(import.meta.env)
+const socket = io(import.meta.env.BACKEND_URL || 'http://localhost:4000', {
+  autoConnect: false,
+})
+
 const focusObs = new Subject()
 
 export const connect = {
@@ -37,7 +39,7 @@ export const connect = {
     connect.listen = (event, killObserver) => {
       return connect.socket$.pipe(
         switchMap((socket) => fromEvent(socket, event)),
-				takeUntil(killObserver)
+        takeUntil(killObserver)
       )
     }
     // connect.listen = (event) => {
@@ -45,7 +47,6 @@ export const connect = {
     //     switchMap((socket) => fromEvent(socket, event))
     //   )
     // }
-
   },
 }
 
