@@ -4,7 +4,7 @@ import { map, switchMap, takeUntil } from 'rxjs/operators'
 import { createContext } from 'react'
 
 console.log(import.meta.env)
-const socket = io(import.meta.env.BACKEND_URL || 'http://localhost:4000', {
+const socket = io(import.meta.env.VITE_BACKEND_URL || 'http://localhost:4000', {
   autoConnect: false,
 })
 
